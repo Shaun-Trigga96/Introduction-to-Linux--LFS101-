@@ -1,0 +1,37 @@
+{
+    "markdown.preview.breaks": true,
+    "markdown.preview.linkify": true,
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 1000,
+    "editor.wordWrap": "on",
+    "explorer.compactFolders": false,
+    "todo-tree.tree.showScanModeButton": false,
+    "todo-tree.highlights.defaultHighlight": {
+        "icon": "alert",
+        "type": "tag",
+        "foreground": "red",
+        "background": "white",
+        "opacity": 50,
+        "iconColour": "blue"
+    },
+    "todo-tree.highlights.customHighlight": {
+        "TODO": {
+            "icon": "check",
+            "foreground": "black",
+            "iconColour": "yellow",
+            "gutterIcon": true
+        },
+        "STUDY": {
+            "icon": "book",
+            "foreground": "white",
+            "background": "blue",
+            "iconColour": "blue"
+        },
+        "PRACTICE": {
+            "icon": "tools",
+            "foreground": "white",
+            "background": "green",
+            "iconColour": "green"
+        }
+    }
+}
