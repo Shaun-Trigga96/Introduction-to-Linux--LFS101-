@@ -234,3 +234,80 @@ Sometimes, you need to download files and information, but a browser is not the 
 To download a web page, you can simply type `wget <url>`, and then you can read the downloaded page as a local file using a graphical or non-graphical browser.
 
 ![wget](wget.png)
+
+## curl
+
+Besides downloading, you may want to obtain information about a URL, such as the source code being used. `curl` can be used from the command line or a script to read such information. `curl` also allows you to save the contents of a web page to a file, as does wget.
+
+You can read a URL using `curl <URL>`. For example, if you want to read `http://www.linuxfoundation.org`, type `curl ht‌tp://www.linuxfoundation.org`.
+
+To get the contents of a web page and store it to a file, type `curl -o saved.html ht‌tp://www.mysite.com`. The contents of the main index file at the website will be saved in `saved.html`.
+
+![curl](curl.png)
+
+## FTP (File Transfer Protocol)
+
+When you are connected to a network, you may need to transfer files from one machine to another. `File Transfer Protocol (FTP)` is a well-known and popular method for transferring files between computers using the `Internet`. This method is built on a client-server model. `FTP` can be used within a browser or with stand-alone client programs.
+
+![FTP](FTP.png)
+
+`FTP` is one of the oldest methods of network data transfer, dating back to the early 1970s. As such, it is considered inadequate for modern needs, as well as being intrinsically insecure. However, it is still in use and when security is not a concern (such as with so-called anonymous `FTP`) it can make sense. However, many websites, such as [kernel.org](https://www.kernel.org/), have abandoned its use.
+
+![FTP](FTP.png)
+
+## FTP Clients
+
+`FTP` clients enable you to transfer files with remote computers using the `FTP` protocol. These clients can be either graphical or command line tools. `Filezilla`, for example, allows the use of the drag-and-drop approach to transfer files between hosts. All web browsers support `FTP`; all you have to do is give a URL like `ftp://ftp.kernel.org` where the usual `http:// becomes ftp://`.
+
+Some command line FTP clients are:
+
+- `ftp`
+- `sftp`
+- `ncftp`
+- `yafc (Yet Another FTP Client)`
+
+The reason FTP has fallen into disfavor on modern systems is that it is intrinsically insecure; passwords are user credentials that can be transmitted without encryption and are thus prone to interception. Thus, it was removed in favor of using rsync and web browser https access for example. As an alternative, `sftp` is a very secure mode of connection, which uses the Secure Shell (`ssh`) protocol, which we will discuss shortly. `sftp` encrypts its data and thus sensitive information is transmitted more securely. However, it does not work with so-called anonymous `FTP` (guest user credentials).
+
+![FTP Clients](FTPClients.png)
+
+## SSH: Executing Commands Remotely
+
+`Secure Shell (SSH)` is a cryptographic network protocol used for secure data communication. It is also used for remote services and other secure services between devices on the network and is very useful for administering systems which are not easily available to physically work on, but to which you have remote access.
+
+![SSH](SSH.png)
+
+To login to a remote system using your same user name you can just type `ssh some_system` and press `Enter`. `ssh` then prompts you for the remote password. You can also configure `ssh` to securely allow your remote access without typing a password each time.
+
+If you want to run as another user, you can do either `ssh -l someone some_system` or `ssh someone@some_system`. To run a command on a remote system via `SSH`, at the command prompt, you can type `ssh some_system my_command`.
+
+## Copying Files Securely with scp
+
+We can also move files securely using `Secure Copy (scp)` between two networked hosts. `scp` uses the `SSH protocol` for transferring data.
+
+To copy a local file to a remote system, at the command prompt, type `scp <localfile> <user@remotesystem>:/home/user/` and press `Enter`.
+
+You will receive a prompt for the remote password. You can also configure `scp` so that it does not prompt for a password for each transfer.
+
+![scp](scp.png)
+
+## Chapter Summary
+
+You have completed Chapter 15. Let’s summarize the key concepts covered:
+
+- The `IP (Internet Protocol)` address is a unique logical network address that is assigned to a device on a network.
+- `IPv4` uses `32-bits` for addresses and `IPv6` uses `128-bits` for addresses.
+- Every `IP address` contains both a `network` and a `host` address field.
+- There are five classes of network addresses available: `A, B, C, D` & `E`.
+- `DNS (Domain Name System)` is used for converting `Internet` `domain` and `host` names to `IP addresses`.
+- The `ifconfig` program is used to display current active network interfaces.
+- The commands `ip addr show` and `ip route show` can be used to view `IP` address and `routing` information.
+You can use `ping` to check if the remote host is alive and responding.
+- You can use the `route` utility program to manage `IP` routing.
+- You can monitor and debug network problems using networking tools.
+- `Firefox, Google Chrome, Chromium`, and `Epiphany` are the main graphical browsers used in Linux.
+- Non-graphical or text browsers used in Linux are `Lynx, Links`, and `w3m`.
+- You can use `wget` to download webpages.
+- You can use `curl` to obtain information about URLs.
+- `FTP (File Transfer Protocol)` is used to transfer files over a network.
+- `ftp, sftp, ncftp`, and `yaf`c are command line `FTP` clients used in Linux.
+- You can use `ssh` to run commands on remote systems.
